@@ -1,0 +1,20 @@
+Source: http://www.mysqlfulltextsearch.com/geo_search.pdf
+Radio de la tierra (km): 6367
+
+SELECT f.city, f.address, f.latitude, f.longitude, 
+       ASIN(
+         SQRT(
+           POWER(
+             SIN((40.9575340000 - abs(f.latitude)) * pi()/180 / 2)
+           , 2) + 
+           COS(40.9575340000 * pi()/180 ) * 
+           COS(abs(f.latitude) * pi()/180) * 
+           POWER(
+             SIN((-5.6665640000 - f.longitude) * pi()/180 / 2)
+           , 2)
+         )
+       ) * 6367000 * 2 as distance
+FROM flats as f
+WHERE f.active = TRUE
+HAVING distance < 500
+ORDER BY distance;
