@@ -1,0 +1,29 @@
+development: &defaults
+# jruby settings
+#  adapter: jdbc
+#  driver: com.mysql.jdbc.Driver
+#  url: jdbc:mysql://localhost:3306/ubiquagen_development
+#  pool: 5
+#  timeout: 5000
+
+# ruby settings  
+  adapter: mysql
+  database: mff_development
+
+  username: root
+  password: root 
+
+test:  
+# jruby settings
+#  adapter: jdbc
+#  driver: com.mysql.jdbc.Driver
+#  url: jdbc:mysql://localhost:3306/ubiquagen_test
+#  pool: 5
+#  timeout: 5000
+  
+# ruby settings
+  adapter: mysql
+  database: mff_test
+
+  username: root
+  password: root 
